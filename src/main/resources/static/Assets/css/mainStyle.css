@@ -1,0 +1,69 @@
+body { 
+    background: url("../images/AirplaneBodyBackground.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+#welcome{
+    margin-top: 30%;
+    margin-right: auto;
+    margin-left: auto;
+    color: white; 
+    text-align: center;
+    font-size: 14vw;
+    font-family: 'Indie Flower', cursive;
+    text-shadow: -1px 0 rgb(141, 191, 219), 0 4px rgb(141, 191, 219), 4px 0 rgb(141, 191, 219), 0 -1px rgb(141, 191, 219);
+
+}
+
+a{
+    text-decoration: none !important;
+    color: rgb(141, 191, 219);
+}
+
+a:hover{
+    color:white !important;
+}
+
+#thebutton{
+text-align: center;
+}
+
+button{
+    background:white;
+    color: rgb(141, 191, 219);
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  button:hover{
+    background:rgb(141, 191, 219);
+    color:white;
+  }
+  button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: white;
+    transition:400ms ease all;
+  }
+  button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }

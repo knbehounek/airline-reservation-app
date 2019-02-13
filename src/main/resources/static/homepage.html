@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="Assets/css/homePage.css" />
+    <title>Flight-Rez!</title>
+  </head>
+  <body id="border1">
+    <div id="border2">
+      <div id="border3">
+        <div id="border4">
+          <div class="container" id="content">
+            <nav class="navbar" id="nav">
+              <span class="navbar-text">
+                Reserve, Update, or Cancel Flight
+              </span>
+              <form class="form-inline">
+                <a 
+                  class="navA"
+                  data-toggle="modal"
+                  data-target="#createFlightModal"
+                >
+                  Create Flight
+              </a>
+                <a
+                  class="navA"
+                  data-toggle="modal"
+                  data-target="#deleteFlightModal"
+                >
+                  Delete Flight
+            </a>
+                <a
+                  class="navA"
+                  data-toggle="modal"
+                  data-target="#updateFlightModal"
+                >
+                  Update Flight
+          </a>
+              </form>
+            </nav>
+
+            <div class="container" id="container2div">
+              <h1 id="mainTitle">Destination Paradise</h1>
+              <!-- Data Content -->
+              <div class="row">
+                <div class="col">
+                  <div class="card">
+                    <div class="card-body" id="dataDiv">
+                      <h3 class="card-title">Flyer Data</h3>
+                      <p class="card-text card-content" id="card"></p>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Of DataContent -->
+                <div class="col">
+                  <div class="row">
+                    <button class="mainButtons methodButton dataButtons" id="getAllFlights">
+                      Get All flight Info
+                    </button>
+                  </div>
+                  <!-- <div class="row"><button class="mainButtons"id="getAllCustomer">See Customers</button></div> -->
+                  <div class="row">
+                    <button class="mainButtons methodButton dataButtons" id="getAVGPrice">
+                      Get Avg
+                    </button>
+                  </div>
+                  <div class="row">
+                    <button class="mainButtons methodButton dataButtons" id="getMinPrice">
+                      Get Min
+                    </button>
+                  </div>
+                  <div class="row">
+                    <button class="mainButtons methodButton dataButtons" id="getMaxPrice">
+                      Get Max
+                    </button>
+                  </div>
+                   <div class="row">
+                    <button class="mainButtons methodButton dataButtons" id="getMedian">
+                      Get Median Price
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- First Carosel -->
+              <div class="row carouselsStyle">
+                  <div
+                    id="carouselExampleSlidesOnly carouselDiv"
+                    class="carousel slide col"
+                    data-ride="carousel"
+                  >
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img
+                          class="imgcar1"
+                          src="./Assets/images/Carousel1/imgCar1.jpg"
+                          alt="First slide"
+                        />
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          class="imgcar1"
+                          src="./Assets/images/Carousel1/imgCar2.jpg"
+                          alt="Second slide"
+                        />
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          class="imgcar1"
+                          src="./Assets/images/Carousel1/imgCar3.jpg"
+                          alt="Third slide"
+                        />
+                      </div>
+                    </div>
+                  </div>
+               
+                <div class="col">
+                  <h4 class="carTitles">Tropical Beaches</h4>
+                  <p> Reserve your flight today and set your destination for some tropical beaches all over the world.</p>
+                </div>
+              </div>
+              <!-- end of first carosel -->
+              <!-- Second Carosel -->
+              <div class="row carouselsStyle">
+                <div class="col">
+                  <h4 class="carTitles">Serene Landscapes</h4>
+                  <p> Just a hop on a plane and you can see all world has to offer.</p>
+                </div>
+                  <div
+                    id="carouselExampleSlidesOnly carouselDiv"
+                    class="carousel slide col"
+                    data-ride="carousel"
+                  >
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img
+                          class="imgcar2"
+                          src="./Assets/images/Carousel1/imgCar1.jpg"
+                          alt="First slide"
+                        />
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          class="imgcar2"
+                          src="./Assets/images/Carousel1/imgCar2.jpg"
+                          alt="Second slide"
+                        />
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          class="imgcar2"
+                          src="./Assets/images/Carousel1/imgCar3.jpg"
+                          alt="Third slide"
+                        />
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!-- End Second Carosel -->
+              <!-- Table -->
+              <h1 id="tableTitle">Current Customers</h1>
+              <h3
+                id="subTableTitle"
+                onclick="toggle_visibility('customerTable')"
+              >
+                View all Customers
+              </h3>
+              <table class="table fixed_headers" id="customerTable">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Customer First Name</th>
+                  <th scope="col">Customer Last Name</th>
+                </tr>
+              </table>
+
+              <!-- end of table  -->
+              <!--  Create Flight Modal -->
+              <div
+                class="modal fade"
+                id="createFlightModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLongTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">
+                        Create a Flight
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="flightForm">
+                        <div class="form-row">
+                          <div class="col">
+                            <label>First Name:</label>
+                            <input
+                              id="inputFName"
+                              type="text"
+                              class="form-control"
+                              placeholder="First name"
+                            />
+                          </div>
+                          <div class="col">
+                            <label>Last Name:</label>
+                            <input
+                              id="inputLName"
+                              type="text"
+                              class="form-control"
+                              placeholder="Last name"
+                            />
+                          </div>
+                          <div class="col">
+                            <label>Customer ID:</label>
+                            <input
+                              id="inputID"
+                              type="text"
+                              class="form-control"
+                              placeholder="ID"
+                            />
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="col">
+                            <label>Departing from:</label>
+                            <input
+                              id="inputDepart"
+                              type="text"
+                              class="form-control"
+                              placeholder="Departs From"
+                            />
+                          </div>
+                          <div class="col">
+                            <label>Arriving at:</label>
+                            <input
+                              id="inputArrival"
+                              type="text"
+                              class="form-control"
+                              placeholder="Desired Destination"
+                            />
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <label>Flight Number:</label>
+                          <input
+                            id="inputFNum"
+                            type="text"
+                            class="form-control"
+                            placeholder="Flight Number"
+                          />
+                        </div>
+                        <div class="form-row">
+                          <label>Ticket Price:</label>
+                          <input
+                            id="inputTPrice"
+                            type="text"
+                            class="form-control"
+                            placeholder="Ticket Price Desired"
+                          />
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="methodButton" type="button" data-dismiss="modal">Close</button>
+                      <button class="methodButton" id="saveFlight" type="button">Save flight</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- end of Create flight Modal -->
+              <!-- Update flight Modal -->
+              <div
+                class="modal fade"
+                id="updateFlightModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLongTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">
+                        Update a Flight
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="flightForm">
+                        <div class="form-row">
+                          <div class="col">
+                            <label>First Name:</label>
+                            <input
+                              id="updateFName"
+                              type="text"
+                              class="form-control"
+                              placeholder="First name"
+                            />
+                          </div>
+                          <div class="col">
+                            <label>Last Name:</label>
+                            <input
+                              id="updateLName"
+                              type="text"
+                              class="form-control"
+                              placeholder="Last name"
+                            />
+                          </div>
+                          <div class="col">
+                            <label>Customer ID:</label>
+                            <input
+                              id="updateID"
+                              type="text"
+                              class="form-control"
+                              placeholder="ID"
+                            />
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="col">
+                            <label>Departing from:</label>
+                            <input
+                              id="updateDepart"
+                              type="text"
+                              class="form-control"
+                              placeholder="Departs From"
+                            />
+                          </div>
+                          <div class="col">
+                            <label>Arriving at:</label>
+                            <input
+                              id="updateArrival"
+                              type="text"
+                              class="form-control"
+                              placeholder="Desired Destination"
+                            />
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <label>Flight Number:</label>
+                          <input
+                            id="updateFNum"
+                            type="text"
+                            class="form-control"
+                            placeholder="Flight Number"
+                          />
+                        </div>
+                        <div class="form-row">
+                          <label>Ticket Price:</label>
+                          <input
+                            id="updateTPrice"
+                            type="text"
+                            class="form-control"
+                            placeholder="Ticket Price Desired"
+                          />
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="methodButton" type="button" data-dismiss="modal">Close</button>
+                      <button class="methodButton" id="updateFlight" type="button">
+                        Update Flight
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end of Flight Modal -->
+              <!-- Delete Flight Modal -->
+              <div
+                class="modal fade"
+                id="deleteFlightModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLongTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">
+                        Delete a Flight
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="flightForm">
+                        <div class="form-row">
+                          <div class="col">
+                            <label>Customer ID:</label>
+                            <input
+                              id="deleteID"
+                              type="text"
+                              class="form-control"
+                              placeholder="ID"
+                            />
+                            <label>Flight Number:</label>
+                            <input
+                              id="deleteFNum"
+                              type="text"
+                              class="form-control"
+                              placeholder="Flight Number"
+                            />
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="methodButton" type="button" data-dismiss="modal">Close</button>
+                      <button class="methodButton" id="deleteFlight" type="button">
+                        Delete Flight
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end of Delete Modal -->
+            </div>
+            <div id="footer"></div>
+          </div>
+
+          <!-- Optional JavaScript -->
+          <script src="./Assets/MainJS/get.js"></script>
+          <script src="./Assets/MainJS/post.js"></script>
+          <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+          <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"
+          ></script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
